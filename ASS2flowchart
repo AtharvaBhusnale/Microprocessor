@@ -1,0 +1,86 @@
+Absolutely! Here's the graphical representation of the flowchart with labeled shapes:
+
+```
++--------------------+     +--------------------+     +----------------------+     +---------+
+|       Start       | ----> |  Initialize data  | ----> |  Display "Enter     | ----> | Accept  |
+|        (Rounded)   |     |     section      |     |  string:" on monitor |     | string   |
+|                    |     +--------------------+     +----------------------+     +---------+
++--------------------+                             |                         |         |
+                             |                             |                         v         v
+                             +--------------------+     +----------------------+     +---------+
+                             |  Store string length | ----> |  Set counter (cnt)  | ----> | Move    |
+                             |   (Rax) in data     |     |  to 16               |     | address  |
+                             |    register (length) |     +----------------------+     | of "result" |
+                             +--------------------+                             |     | to rdi   |
+                                                                                v         v
+                                                                            +--------------------+
+                                                                            |  Loop: counter > 0  |  (Diamond)
+                                                                            +--------------------+
+                                                                                |                   |
+                                                                                v                   v
+                                                                            +---------+         +---------+
+                                                                            | Rotate  | ----> | Move bl  |  (Rectangle)
+                                                                            | rbx left |     | (low 8   |
+                                                                            | by 4 bits|     | bits of  |
+                                                                            +---------+         | rbx) to al|
+                                                                                                +---------+
+                                                                                                            v
+                                                                                                        +---------+
+                                                                                                        | AND al  |  (Rectangle)
+                                                                                                        | with 0Fh|
+                                                                                                        | (isolate |
+                                                                                                        | lower 4  |
+                                                                                                        | bits)   |
+                                                                                                        +---------+
+                                                                                                            v
+                                                                                                        +---------+
+                                                                                                        | Compare | ----> | Yes (al  |  (Diamond)
+                                                                                                        | al with  |     | > 09h)   |
+                                                                                                        | 09h      |     +---------+
+                                                                                                        +---------+         |         |
+                                                                                                            v                   v
+                                                                                                        +---------+         +---------+
+                                                                                                        | No (al  | ----> | Add 37h  |  (Rectangle)
+                                                                                                        | <= 09h)  |     | to al    |
+                                                                                                        +---------+         +---------+
+                                                                                                            v                   v
+                                                                                                        +---------+         +---------+
+                                                                                                        | Move al  | ----> | Move al  |  (Rectangle)
+                                                                                                        | (converted|     | (converted|
+                                                                                                        | hex digit)|     | hex digit)|
+                                                                                                        | to memory|     | to memory|
+                                                                                                        | location |     | location |
+                                                                                                        | pointed by|     | pointed by|
+                                                                                                        | rdi       |     | rdi       |
+                                                                                                        +---------+         +---------+
+                                                                                                            v                   v
+                                                                                                        +---------+         +---------+
+                                                                                                        | Increment| ----> | Loop:     |  (Rectangle)
+                                                                                                        | rdi        |     | counter > 0|
+                                                                                                        +---------+         +---------+
+                                                                                                                            v
+                                                                                                                        +--------------------+
+                                                                                                                        |  Call dispmsg macro |  (Rectangle)
+                                                                                                                        |  (pass length        |
+                                                                                                                        |   and result var)    |
+                                                                                                                        +--------------------+
+                                                                                                                            v
+                                                                                                                        +---------+
+                                                                                                                        | Return   |  (Rectangle)
+                                                                                                                        | from      |
+                                                                                                                        | procedure |
+                                                                                                                        +---------+
+                                                                                                                            v
+                                                                                                                        +---------+
+                                                                                                                        | Stop     |  (Rounded)
+                                                                                                                        +---------+
+```
+
+This representation incorporates the following shapes:
+
+- Rounded rectangle: Start and Stop symbols
+- Rectangle: Process symbols (actions and calculations)
+- Diamond: Decision symbol
+- Parallelogram: Input/Output symbol (not used in this case)
+
+This flowchart adheres to the coding flowcharting conventions while providing a visually clear depiction
