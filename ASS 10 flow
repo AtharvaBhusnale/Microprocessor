@@ -1,0 +1,26 @@
++--------------------+          +-------------------+          +-------------------+
+|       Start       | (Rounded Rectangle) ----> | Display Menu     | (Rectangle) ----> | Accept Choice (1/2/3)| (Rectangle)
++--------------------+          +-------------------+          +-------------------+
+                             |                       |                     v
+                             v                       v                     |
++--------------------+          +-------------------+          +-----------+-----------+
+| Decision (Diamond) | ----> | Call Selected Method | (Rectangle) ----> | Loop (Start)        | (Rectangle)
++--------------------+          +-------------------+          +-----------+-----------+
+                             |                       |                     v
+                             v                       v                     |
++--------------------+          +-------------------+          +-----------+-----------+
+| Exit Program       | (Rounded Rectangle)        | Exit Program       | (Rounded Rectangle)
++--------------------+          +-------------------+          +-----------+-----------+
+
+      +----------+          +----------+          +----------+          +----------+
+      |  Method 1  | (Rectangle) ----> | Get Num1 & Num2 | (Rectangle) ----> | Convert & Add (Loop) | (Rectangle) ----> | Display Result | (Rectangle)
+      |  (Successive) |          +----------+          +----------+          +----------+          +----------+
+      +----------+                             |                       |
+                                                 v                       v
+      +----------+          +----------+          +----------+
+      |  Method 2  | (Rectangle) ----> | Get Num1 & Num2 | (Rectangle) ----> | Convert & Shift/Add (Loop) | (Rectangle) ----> | Display Result | (Rectangle)
+      |  (Add & Shift) |          +----------+          +----------+          +----------+          +----------+
+      +----------+                             |
+
+      +----------+          +----------+          +----------+
+      |  Convert   | (Rectangle) ----> | Convert Decimal | (Rectangle) ----> | Display Binary | (Rectangle)
