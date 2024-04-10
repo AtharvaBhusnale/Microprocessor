@@ -1,0 +1,59 @@
+ +-----------------+      (Rectangle - Process)
+       |      Start      | (A)
+       +-----------------+
+               |
+               v
+       +-----------------+      (Rectangle - Process)
+       | Print Welcome Msg| (B)
+       +-----------------+
+               |
+               v
+       +-----------------+      (Rectangle - Process)
+       | Set Array Ptr (esi)| (C)
+       | & Loop Counter (ecx)|
+       +-----------------+
+               |
+               v
+   Loop:   +---------+       (Rectangle - Process)
+           | Process Element | (D)  (Includes bit test, 
+           | (Count +ve/-ve)  |      incrementing counters, 
+           | & Incr Array Ptr |      and incrementing esi twice)
+           +---------+
+               |
+               v  (Loop back arrow as long as ecx > 0)
+───►(C)───────────────────┤
+               |
+               v
+       +-----------------+      (Rectangle - Process)
+       | Print +ve Count  | (H)
+       | Message         |
+       +-----------------+
+               |
+               v
+       +---------+       (Rectangle - Process)
+       | Call disp8num  | (I)
+       | (Convert & Print)|
+       +---------+
+               |
+               v
+       +-----------------+      (Rectangle - Process)
+       | Print -ve Count  | (K)
+       | Message         |
+       +-----------------+
+               |
+               v
+       +---------+       (Rectangle - Process)
+       | Call disp8num  | (M)
+       | (Convert & Print)|
+       +---------+
+               |
+               v
+       +---------+      (Rectangle - Process)
+       |        Exit     | (O)
+       +---------+
+
+subgraph disp8num (Simplified)
+       +---------+      (Rectangle - Process)
+       | Convert & Print | (Combined step)
+       | Number (bl)      |
+       +---------+
