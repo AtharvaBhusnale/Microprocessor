@@ -1,0 +1,43 @@
++-----------------+      (Rectangle - Process)
+       |      Start      | (A)
+       +-----------------+
+               |
+               v
+       +-----------------+      (Rectangle - Process)
+       |  Print Menu     | (B)
+       +-----------------+
+               |
+               v
+       +-----------------+      (Decision - Diamond)
+       | Get User Choice | (C)
+       +-----------------+
+               | (Downward arrow)
+               v
+          /         \
+       +---------+       +---------+       +---------+       +---------+
+       | Choice  | -----> | Choice  | -----> | Choice  | -----> | Choice  |  (Rectangle - Input/Output)
+       |  1?     |       |  2?     |       |  3?     |       |  4?     | (D, F, H, J)
+[+---------+       +---------+       +---------+       +---------+]
+|               |               |               |               | (Empty space)
+|               v               v               v               v       | (Downward arrows)
+|       +---------+       +---------+       +---------+       +---------+      (Subprocess - Rounded rectangle)
+|       | Call     | -----> | Call     | -----> | Call     | -----> | Call     |  (E, G, I, K)
+|       | add_proc |       | sub_proc |       | mul_proc |       | div_proc |
+[+---------+       +---------+       +---------+       +---------+]
+|               |               |               |               | (Empty space)
+|               v               v               v               v       | (Downward arrows)
+|       +---------+       +---------+       +---------+       +---------+      (Rectangle - Process)
+|       | Print    | -----> | Print    | -----> | Print    | -----> | Print    |  (M, M, M, L)
+|       | Result   |       | Result   |       | Result   | -----> | Invalid  |
+[+---------+       +---------+       +---------+       +---------+]
+|               |               |               |               | (Empty space)
+|               v               v               v        
+|       +---------+       +---------+          +---------+      (Rectangle - Process)
+|       | Print    | -----> |          | -----> | Exit    |  (N)
+|       | Number   |       +---------+          +---------+
+[+---------+                                 |
+                                                    v
+                                               +---------+      (Terminator - Rounded rectangle with a vertical line inside)
+                                               | Program  |
+                                               | Terminates| (O)
+                                               +---------+
